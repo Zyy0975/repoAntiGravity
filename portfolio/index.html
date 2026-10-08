@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#050510" />
+
+  <!-- ===== SEO ===== -->
+  <title>Muhammad Ghozy Maulana — Portofolio</title>
+  <meta name="description" content="Portofolio pribadi Muhammad Ghozy Maulana, siswa kelas 11 Rekayasa Perangkat Lunak (RPL) SMK Negeri 6 Surakarta, Sukoharjo." />
+  <meta name="keywords" content="Muhammad Ghozy Maulana, portofolio, web developer, RPL, SMK Negeri 6 Surakarta, Sukoharjo, HTML, CSS, JavaScript, PHP, Tailwind CSS, MySQL" />
+  <meta name="author" content="Muhammad Ghozy Maulana" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content="Muhammad Ghozy Maulana — Portofolio" />
+  <meta property="og:description" content="Web developer muda dari Sukoharjo, Jawa Tengah." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Ghozy Maulana — Portofolio" />
+  <meta name="twitter:description" content="Portofolio ." />
+
+  <!-- ===== FONTS ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- ===== TAILWIND PLAY CDN ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace']
+          },
+          colors: {
+            space: '#050510',
+            abyss: '#07071a',
+            cyan: { DEFAULT: '#3df5ff', deep: '#0bb7c9' },
+            violet: { DEFAULT: '#9d7cff', deep: '#6c4bd8' }
+          },
+          boxShadow: {
+            glow: '0 0 70px -20px rgba(61,245,255,.5)',
+            'glow-v': '0 0 70px -20px rgba(157,124,255,.5)'
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            parallax: 'parallax 18s ease-in-out infinite',
+            spinSlow: 'spin 22s linear infinite',
+            pulseDot: 'pulseDot 2.4s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+            parallax: {
+              '0%,100%': { transform: 'translateY(0px) translateX(0px)' },
+              '33%': { transform: 'translateY(-18px) translateX(12px)' },
+              '66%': { transform: 'translateY(-6px) translateX(-10px)' }
+            },
+            pulseDot: {
+              '0%,100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.6)', opacity: '.55' }
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- ===== CUSTOM CSS ===== -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body class="dark bg-space text-slate-100 antialiased overflow-x-hidden selection:bg-cyan/30 selection:text-white">
+
+  <!-- ===== SKIP LINK ===== -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:rounded-full focus:bg-cyan focus:px-5 focus:py-2 focus:text-sm focus:font-bold focus:text-space">
+    Lewati ke konten
+  </a>
+
+  <!-- ===== BACKDROP: STARFIELD & GRID ===== -->
+  <div class="stars" aria-hidden="true"></div>
+  <div class="grid-plane" aria-hidden="true"></div>
+
+  <!-- ===== ORB / BLOB MELAYANG ===== -->
+  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="orb orb--cyan"   style="width:420px;height:420px;top:-8%;left:-6%;"></div>
+    <div class="orb orb--violet" style="width:520px;height:520px;top:22%;right:-14%;"></div>
+    <div class="orb orb--mix"    style="width:380px;height:380px;bottom:-10%;left:28%;"></div>
+  </div>
+
+  <!-- ===== CURSOR AURA (desktop) ===== -->
+  <div id="cursor-aura" class="pointer-events-none fixed z-[55] hidden md:block h-56 w-56 rounded-full"
+       style="background:radial-gradient(circle,rgba(61,245,255,.14),rgba(157,124,255,.08) 55%,transparent 72%);filter:blur(14px);opacity:0;transition:opacity .4s ease;transform:translate(-50%,-50%);left:50%;top:50%;" aria-hidden="true"></div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div id="scroll-progress" class="fixed top-0 left-0 z-[75]" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-[70]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+
+        <!-- Brand -->
+        <a href="#hero" class="group flex items-center gap-3" aria-label="Beranda Muhammad Ghozy Maulana">
+          <span class="relative grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-6">
+            <span class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan/40 to-violet/40 opacity-70 blur-[6px] transition-opacity group-hover:opacity-100"></span>
+            <span class="relative font-heading text-base font-extrabold text-white">GM</span>
+          </span>
+          <span class="hidden flex-col leading-tight sm:flex">
+            <span class="font-heading text-sm font-bold text-white">Ghozy Maulana</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-cyan/80">dev</span>
+          </span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav id="desktop-nav" class="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-1.5 backdrop-blur-xl md:flex" aria-label="Navigasi utama">
+          <a href="#hero"     class="nav-link is-active" data-nav="hero">Beranda</a>
+          <a href="#about"    class="nav-link" data-nav="about">Tentang</a>
+          <a href="#skills"   class="nav-link" data-nav="skills">Tech Stack</a>
+          <a href="#projects" class="nav-link" data-nav="projects">Proyek</a>
+          <a href="#contact"  class="nav-link" data-nav="contact">Kontak</a>
+        </nav>
+
+        <!-- CTA + hamburger -->
+        <div class="flex items-center gap-2">
+          <a href="#contact"
+             class="hidden sm:inline-flex items-center gap-2 rounded-full border border-cyan/40 bg-cyan/10 px-4 py-2 text-xs font-bold text-cyan backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan/20 hover:shadow-glow">
+            Ngobrol Yuk
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <button id="menu-toggle" type="button"
+                  class="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 backdrop-blur-xl transition hover:border-cyan/40 hover:text-cyan md:hidden"
+                  aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger relative block h-4 w-5">
+              <span class="bar absolute left-0 top-0 h-[2px] w-full rounded bg-current"></span>
+              <span class="bar absolute left-0 top-1/2 h-[2px] w-full -translate-y-1/2 rounded bg-current"></span>
+              <span class="bar absolute bottom-0 left-0 h-[2px] w-full rounded bg-current"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="overflow-hidden border-t border-white/5 bg-space/95 backdrop-blur-2xl transition-all duration-500 md:hidden" style="max-height:0;opacity:0;">
+      <nav class="flex flex-col gap-1 px-4 py-4" aria-label="Navigasi mobile">
+        <a href="#hero"     class="m-link" data-nav="hero"><span class="font-mono text-xs text-cyan/70">01</span> Beranda</a>
+        <a href="#about"    class="m-link" data-nav="about"><span class="font-mono text-xs text-cyan/70">02</span> Tentang Saya</a>
+        <a href="#skills"   class="m-link" data-nav="skills"><span class="font-mono text-xs text-cyan/70">03</span> Tech Stack</a>
+        <a href="#projects" class="m-link" data-nav="projects"><span class="font-mono text-xs text-cyan/70">04</span> Proyek</a>
+        <a href="#contact"  class="m-link" data-nav="contact"><span class="font-mono text-xs text-cyan/70">05</span> Kontak</a>
+        <a href="mailto:ghozimaulana44@gmail.com" class="mt-3 inline-flex items-center justify-center rounded-2xl border border-cyan/40 bg-cyan/10 px-4 py-3 text-sm font-bold text-cyan">
+          ghozimaulana44@gmail.com
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== 1. HERO ===================== -->
+    <section id="hero" class="relative flex min-h-[100svh] items-center justify-center overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+
+      <!-- Bentuk abstrak parallax mengikuti mouse -->
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="geo geo--ring float-slow"      data-depth="34" style="width:110px;height:110px;top:18%;left:8%;"></div>
+        <div class="geo geo--sq rotate-12 float-medium" data-depth="52" style="width:74px;height:74px;top:24%;right:10%;"></div>
+        <div class="geo geo--ring-v float-fast"    data-depth="26" style="width:60px;height:60px;bottom:26%;left:14%;"></div>
+        <div class="geo geo--pill float-medium"    data-depth="44" style="width:130px;height:44px;bottom:22%;right:12%;border-radius:999px;"></div>
+        <div class="geo float-slow"                data-depth="30" style="width:38px;height:38px;top:58%;left:5%;transform:rotate(45deg);border-radius:10px;"></div>
+        <div class="geo geo--ring float-fast"      data-depth="40" style="width:26px;height:26px;top:66%;right:6%;"></div>
+
+        <!-- kode melayang -->
+        <div class="geo float-medium font-mono text-[11px] px-4 py-2.5 hidden xl:block" data-depth="48" style="top:34%;left:3%;border-radius:16px;color:#3df5ff;">
+          &lt;div class="float" /&gt;
+        </div>
+        <div class="geo float-slow font-mono text-[11px] px-4 py-2.5 hidden xl:block" data-depth="46" style="top:42%;right:5%;border-radius:16px;color:#9d7cff;">
+          const gravity = false;
+        </div>
+      </div>
+
+      <div class="relative z-10 mx-auto w-full max-w-5xl text-center">
+
+        <!-- Badge -->
+        <div class="reveal flex flex-wrap items-center justify-center gap-2.5" data-delay="0">
+          <span class="tag-chip">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75"></span>
+              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan"></span>
+            </span>
+            Portfolio
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] font-medium text-slate-300 backdrop-blur-xl">
+            <svg class="h-3 w-3 text-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+            Kelas 11 · RPL · SMK N6 Surakarta
+          </span>
+        </div>
+
+        <!-- Judul -->
+        <h1 id="hero-title" class="reveal mt-8 font-heading text-[2.5rem] leading-[1.04] font-extrabold tracking-tight sm:text-6xl lg:text-7xl" data-delay="90">
+          <span class="block text-white">Muhammad</span>
+          <span class="block gradient-text gradient-text--animate">Ghozy Maulana</span>
+        </h1>
+
+        <!-- Tagline -->
+        <p class="reveal mx-auto mt-7 max-w-3xl text-balance text-lg leading-relaxed text-slate-300 sm:text-xl lg:text-2xl" data-delay="170">
+          <span class="font-heading font-bold text-white">Portofolio.</span><br class="hidden sm:block" />
+          Saya membangun <span class="text-cyan">antarmuka ringan</span> yang melayang mulus —
+          karena pengalaman web yang baik seharusnya terasa <span class="text-violet">tanpa bobot</span>.
+        </p>
+
+        <!-- Typing strip -->
+        <div class="reveal mx-auto mt-7 flex w-fit max-w-full items-center gap-2 overflow-hidden rounded-2xl border border-white/10 bg-white/5 px-5 py-2.5 backdrop-blur-xl" data-delay="230">
+          <span class="font-mono text-sm text-slate-500">&gt;</span>
+          <span id="typed" class="font-mono text-sm text-cyan"></span><span class="font-mono text-sm text-cyan animate-pulse">▌</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal mt-11 flex flex-col items-center justify-center gap-3.5 sm:flex-row" data-delay="310">
+          <a href="#projects" id="cta-projects" class="btn-primary w-full sm:w-auto">
+            Jelajahi Proyek
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" id="cta-contact" class="btn-ghost w-full sm:w-auto">
+            Hubungi Saya
+            <svg class="h-4 w-4 text-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+          </a>
+        </div>
+
+        <!-- Stat mini -->
+        <div class="reveal mx-auto mt-14 grid max-w-xl grid-cols-3 gap-3 sm:gap-5" data-delay="390">
+          <div class="glass rounded-2xl px-3 py-4 text-center">
+            <p class="font-heading text-2xl font-extrabold text-cyan sm:text-3xl"><span class="counter" data-target="11">0</span></p>
+            <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400">Kelas</p>
+          </div>
+          <div class="glass rounded-2xl px-3 py-4 text-center">
+            <p class="font-heading text-2xl font-extrabold text-violet sm:text-3xl"><span class="counter" data-target="7">0</span>+</p>
+            <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400">Tech Stack</p>
+          </div>
+          <div class="glass rounded-2xl px-3 py-4 text-center">
+            <p class="font-heading text-2xl font-extrabold text-cyan sm:text-3xl"><span class="counter" data-target="3">0</span></p>
+            <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400">Proyek</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="absolute bottom-7 left-1/2 z-10 -translate-x-1/2">
+        <a href="#about" class="scroll-cue group flex flex-col items-center gap-2" aria-label="Gulir ke bawah">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500 transition-colors group-hover:text-cyan">Scroll</span>
+          <span class="mouse"><span></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== 2. TENTANG SAYA ===================== -->
+    <section id="about" class="relative mx-auto max-w-7xl scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
+
+        <!-- Teks -->
+        <div class="lg:col-span-7">
+          <div class="reveal flex items-center gap-4">
+            <span class="font-mono text-xs text-cyan/80">01</span>
+            <span class="h-px w-10 bg-gradient-to-r from-cyan to-transparent"></span>
+            <span class="eyebrow">Tentang Saya</span>
+          </div>
+
+          <h2 class="reveal mt-6 font-heading text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.7rem]" data-delay="80">
+            Membuat UI<br />
+            <span class="gradient-text">melayang</span>
+          </h2>
+
+          <div class="mt-7 space-y-5 text-[15px] leading-relaxed text-slate-300 sm:text-base">
+            <p class="reveal" data-delay="140">
+              Halo! Saya <strong class="font-semibold text-white">Muhammad Ghozy Maulana</strong>,
+              siswa <strong class="font-semibold text-cyan">kelas 11 jurusan Rekayasa Perangkat Lunak (RPL)</strong>
+              di <strong class="font-semibold text-white">SMK Negeri 6 Surakarta</strong>.
+              Saya bersemangat dan gemar membangun aplikasi web — mulai dari antarmuka yang bersih
+              hingga logika back-end sederhana.
+            </p>
+            <p class="reveal" data-delay="200">
+              Berdomisili di <strong class="font-semibold text-violet">Sukoharjo, Jawa Tengah, Indonesia</strong>,
+              saya menghabiskan waktu luang untuk bereksperimen dengan animasi, efek glassmorphism,
+              dan pola desain modern agar setiap halaman terasa hidup — seolah elemennya benar-benar
+              <em class="text-slate-100 not-italic">melayang tanpa gravitasi</em>.
+            </p>
+            <p class="reveal" data-delay="260">
+              Bagi saya, kode bukan sekadar instruksi — ia adalah cara menantang hukum fisika digital.
+            </p>
+          </div>
+
+          <!-- Chips info -->
+          <div class="reveal mt-8 flex flex-wrap gap-3" data-delay="320">
+            <span class="stack-badge">Sukoharjo, Jawa Tengah</span>
+            <span class="stack-badge">SMK Negeri 6 Surakarta</span>
+            <span class="stack-badge">Kelas 11 — RPL</span>
+            <span class="stack-badge">Web Developer</span>
+          </div>
+        </div>
+
+        <!-- Kartu profil -->
+        <div class="lg:col-span-5">
+          <div class="reveal reveal--zoom relative mx-auto max-w-sm" data-delay="180">
+            <div class="glass rounded-3xl p-8 text-center levitate-after-reveal is-visible">
+              <!-- Avatar -->
+              <div class="relative mx-auto h-28 w-28">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-cyan/50 to-violet/50 blur-xl"></div>
+                <div class="relative grid h-28 w-28 place-items-center rounded-full border border-white/15 bg-abyss font-heading text-4xl font-extrabold text-white">
+                  GM
+                </div>
+                <span class="absolute -right-1 -top-1 h-5 w-5 rounded-full border-2 border-space bg-cyan animate-pulseDot"></span>
+                <span class="absolute -bottom-1 -left-1 h-4 w-4 rounded-full border-2 border-space bg-violet animate-pulseDot" style="animation-delay:.8s;"></span>
+              </div>
+
+              <h3 class="mt-6 font-heading text-xl font-bold text-white">Muhammad Ghozy Maulana</h3>
+              <p class="mt-1 text-sm text-cyan">Rekayasa Perangkat Lunak · Kelas 11</p>
+              <div class="shimmer-line mx-auto my-5 w-24"></div>
+
+              <dl class="space-y-3 text-left text-sm">
+                <div class="flex items-center justify-between gap-3">
+                  <dt class="text-slate-400">Sekolah</dt>
+                  <dd class="text-right font-medium text-slate-200">SMK N 6 Surakarta</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <dt class="text-slate-400">Domisili</dt>
+                  <dd class="text-right font-medium text-slate-200">Sukoharjo, Jateng</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <dt class="text-slate-400">Fokus</dt>
+                  <dd class="text-right font-medium text-slate-200">Web Apps</dd>
+                </div>
+                <div class="flex items-center justify-between gap-3">
+                  <dt class="text-slate-400">Status</dt>
+                  <dd class="text-right">
+                    <span class="inline-flex items-center gap-1.5 rounded-full border border-cyan/40 bg-cyan/10 px-2.5 py-1 text-[11px] font-bold text-cyan">
+                      <span class="h-1.5 w-1.5 rounded-full bg-cyan animate-pulseDot"></span> Open to learn
+                    </span>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3. TECH STACK ===================== -->
+    <section id="skills" class="relative mx-auto max-w-7xl scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="reveal flex items-center justify-center gap-4">
+          <span class="font-mono text-xs text-cyan/80">02</span>
+          <span class="eyebrow">Tech Stack / Keahlian</span>
+        </div>
+        <h2 class="reveal mt-6 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl" data-delay="80">
+          Kemampuan <span class="gradient-text">Saya</span>
+        </h2>
+        <p class="reveal mt-5 text-slate-300 sm:text-lg" data-delay="140">
+          Teknologi yang saya kuasai, dikelompokkan rapi dalam kartu glassmorphism yang tampak melayang.
+        </p>
+        <div class="shimmer-line reveal mx-auto mt-7 w-40" data-delay="180"></div>
+      </div>
+
+      <div class="mt-14 grid gap-6 md:grid-cols-3">
+
+        <!-- Bahasa Utama -->
+        <article class="reveal glass group rounded-3xl p-7 levitate-after-reveal" data-delay="0" style="animation-delay:0s;">
+          <div class="flex items-center justify-between">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-cyan/40 bg-cyan/10 text-cyan">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500 group-hover:text-cyan transition-colors">core</span>
+          </div>
+          <h3 class="mt-5 font-heading text-xl font-bold text-white">Bahasa Utama</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Fondasi setiap halaman yang saya bangun.</p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <span class="stack-badge">HTML5</span>
+            <span class="stack-badge">CSS3</span>
+            <span class="stack-badge">JavaScript (ES6)</span>
+            <span class="stack-badge">PHP</span>
+          </div>
+        </article>
+
+        <!-- Framework / Database -->
+        <article class="reveal glass group rounded-3xl p-7 levitate-after-reveal" data-delay="90" style="animation-delay:1.4s;">
+          <div class="flex items-center justify-between">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-violet/40 bg-violet/10 text-violet">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500 group-hover:text-violet transition-colors">layer</span>
+          </div>
+          <h3 class="mt-5 font-heading text-xl font-bold text-white">Framework / Database</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Styling kilat dan penyimpanan data yang rapi.</p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <span class="stack-badge">Tailwind CSS</span>
+            <span class="stack-badge">MySQL</span>
+          </div>
+        </article>
+
+        <!-- Tools -->
+        <article class="reveal glass group rounded-3xl p-7 levitate-after-reveal" data-delay="180" style="animation-delay:2.6s;">
+          <div class="flex items-center justify-between">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl border border-white/25 bg-white/10 text-slate-200">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500 group-hover:text-cyan transition-colors">kit</span>
+          </div>
+          <h3 class="mt-5 font-heading text-xl font-bold text-white">Tools</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-400">Alur kerja harian dari editor hingga deploy.</p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <span class="stack-badge">VS Code</span>
+            <span class="stack-badge">GitHub</span>
+            <span class="stack-badge">Git</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 4. PROYEK ===================== -->
+    <section id="projects" class="relative mx-auto max-w-7xl scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="reveal flex items-center justify-center gap-4">
+          <span class="font-mono text-xs text-cyan/80">03</span>
+          <span class="eyebrow">Proyek</span>
+        </div>
+        <h2 class="reveal mt-6 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl" data-delay="80">
+          Karya <span class="gradient-text">Karya</span>
+        </h2>
+        <p class="reveal mt-5 text-slate-300 sm:text-lg" data-delay="140">
+          Tiga proyek sekolah — placeholder siap dikembangkan menjadi aplikasi nyata.
+        </p>
+        <div class="shimmer-line reveal mx-auto mt-7 w-40" data-delay="180"></div>
+      </div>
+
+      <div class="mt-14 grid gap-7 md:grid-cols-3">
+
+        <!-- Proyek 1 -->
+        <article class="reveal tilt glass group rounded-3xl overflow-hidden transition-shadow duration-500 hover:shadow-glow" data-delay="0">
+          <div class="project-cover h-44 grid place-items-center">
+            <span class="glyph">LIB</span>
+            <span class="absolute left-4 top-4 z-10 rounded-full border border-white/25 bg-black/35 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan backdrop-blur-md">PHP · MySQL</span>
+          </div>
+          <div class="tilt__inner p-6">
+            <h3 class="font-heading text-lg font-bold leading-snug text-white transition-colors group-hover:text-cyan">
+              Sistem Manajemen Perpustakaan Sekolah
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Placeholder sistem perpustakaan: katalog buku, peminjaman, pengembalian, dan laporan —
+              dibangun dengan PHP & MySQL.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">PHP</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">MySQL</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">CRUD</span>
+            </div>
+            <div class="mt-6 flex items-center justify-between border-t border-white/8 pt-4">
+              <span class="font-mono text-[11px] text-slate-500">Proyek Sekolah #1</span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan transition-transform duration-300 group-hover:translate-x-1">
+                Detail
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyek 2 -->
+        <article class="reveal tilt glass group rounded-3xl overflow-hidden transition-shadow duration-500 hover:shadow-glow-v" data-delay="90">
+          <div class="project-cover h-44 grid place-items-center">
+            <span class="glyph">EC</span>
+            <span class="absolute left-4 top-4 z-10 rounded-full border border-white/25 bg-black/35 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-violet backdrop-blur-md">HTML · Tailwind</span>
+          </div>
+          <div class="tilt__inner p-6">
+            <h3 class="font-heading text-lg font-bold leading-snug text-white transition-colors group-hover:text-violet">
+              Landing Page E-Commerce
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Placeholder landing page toko online modern: hero, showcase produk, testimoni,
+              dan CTA konversi — murni HTML & Tailwind CSS.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">HTML</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">Tailwind CSS</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">Responsive</span>
+            </div>
+            <div class="mt-6 flex items-center justify-between border-t border-white/8 pt-4">
+              <span class="font-mono text-[11px] text-slate-500">Proyek Sekolah #2</span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-violet transition-transform duration-300 group-hover:translate-x-1">
+                Detail
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Proyek 3 -->
+        <article class="reveal tilt glass group rounded-3xl overflow-hidden transition-shadow duration-500 hover:shadow-glow" data-delay="180">
+          <div class="project-cover h-44 grid place-items-center">
+            <span class="glyph">ABS</span>
+            <span class="absolute left-4 top-4 z-10 rounded-full border border-white/25 bg-black/35 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-cyan backdrop-blur-md">JS · LocalStorage</span>
+          </div>
+          <div class="tilt__inner p-6">
+            <h3 class="font-heading text-lg font-bold leading-snug text-white transition-colors group-hover:text-cyan">
+              Aplikasi Web Presensi Siswa
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-400">
+              Placeholder presensi digital: catat kehadiran, riwayat, dan statistik kelas
+              dengan JavaScript vanilla + LocalStorage.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">JavaScript</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">LocalStorage</span>
+              <span class="stack-badge" style="font-size:.75rem;padding:.4rem .8rem;">Vanilla JS</span>
+            </div>
+            <div class="mt-6 flex items-center justify-between border-t border-white/8 pt-4">
+              <span class="font-mono text-[11px] text-slate-500">Proyek Sekolah #3</span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan transition-transform duration-300 group-hover:translate-x-1">
+                Detail
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 5. KONTAK ===================== -->
+    <section id="contact" class="relative mx-auto max-w-6xl scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="reveal flex items-center justify-center gap-4">
+          <span class="font-mono text-xs text-cyan/80">04</span>
+          <span class="eyebrow">Kontak</span>
+        </div>
+        <h2 class="reveal mt-6 font-heading text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl" data-delay="80">
+          Mari <span class="gradient-text">berkolaborasi</span>
+        </h2>
+        <p class="reveal mt-5 text-slate-300 sm:text-lg" data-delay="140">
+          Ide proyek, pertanyaan, atau sekadar sapaan — kirim pesan, saya balas secepatnya.
+        </p>
+        <div class="shimmer-line reveal mx-auto mt-7 w-40" data-delay="180"></div>
+      </div>
+
+      <div class="mt-14 grid gap-7 lg:grid-cols-5">
+
+        <!-- Form -->
+        <div class="reveal lg:col-span-3" data-delay="60">
+          <form id="contact-form" class="glass rounded-3xl p-6 sm:p-8 space-y-5" novalidate>
+            <div class="field">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Nama kamu…" required />
+              <p class="err" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@email.com" required />
+              <p class="err" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="message">Pesan</label>
+              <textarea id="message" name="message" placeholder="Tulis pesanmu di sini (min. 10 karakter)…" required></textarea>
+              <p class="err" role="alert"></p>
+            </div>
+            <button type="submit" id="submit" class="btn-primary w-full">
+              Kirim Pesan
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+            </button>
+            <p class="text-center text-xs leading-relaxed text-slate-500">
+              Formulir akan membuka aplikasi email kamu dengan pesan yang sudah terisi otomatis.
+            </p>
+          </form>
+        </div>
+
+        <!-- Info kontak -->
+        <div class="lg:col-span-2 space-y-5">
+
+          <!-- Email card -->
+          <a href="mailto:ghozimaulana44@gmail.com" data-contact="email"
+             class="reveal reveal--right glass group flex items-center gap-4 rounded-3xl p-5 sm:p-6" data-delay="120">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-cyan/40 bg-cyan/10 text-cyan transition-transform duration-500 group-hover:-translate-y-1">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Email</span>
+              <span class="block truncate text-sm font-semibold text-white">ghozimaulana44@gmail.com</span>
+            </span>
+          </a>
+
+          <!-- WhatsApp card -->
+          <a href="https://wa.me/6289527576699" target="_blank" rel="noopener noreferrer" data-contact="wa"
+             class="reveal reveal--right glass group flex items-center gap-4 rounded-3xl p-5 sm:p-6" data-delay="180">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-violet/40 bg-violet/10 text-violet transition-transform duration-500 group-hover:-translate-y-1">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">WhatsApp</span>
+              <span class="block truncate text-sm font-semibold text-white">0895-2757-6699</span>
+            </span>
+          </a>
+
+          <!-- Lokasi card -->
+          <div class="reveal reveal--right glass flex items-center gap-4 rounded-3xl p-5 sm:p-6" data-delay="240">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-white/25 bg-white/10 text-slate-200">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <span>
+              <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Lokasi</span>
+              <span class="block text-sm font-semibold text-white">Sukoharjo, Jawa Tengah</span>
+            </span>
+          </div>
+
+          <!-- Status card -->
+          <div class="reveal reveal--right glass flex items-center gap-4 rounded-3xl p-5 sm:p-6" data-delay="300">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-cyan/40 bg-cyan/10 text-cyan">
+              <span class="h-2.5 w-2.5 rounded-full bg-cyan animate-pulseDot"></span>
+            </span>
+            <span>
+              <span class="block font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">Status</span>
+              <span class="block text-sm font-semibold text-white">Terbuka untuk diskusi & kolaborasi</span>
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="relative border-t border-white/8 bg-abyss/60 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-8 md:flex-row md:justify-between">
+
+        <div class="flex flex-col items-center gap-3 md:items-start">
+          <a href="#hero" class="flex items-center gap-3">
+            <span class="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-gradient-to-br from-cyan/40 to-violet/40 font-heading text-sm font-extrabold text-white">GM</span>
+            <span class="font-heading text-sm font-bold text-white">Muhammad Ghozy Maulana</span>
+          </a>
+          <p class="text-sm text-slate-400">-</p>
+        </div>
+
+        <nav class="flex flex-wrap items-center justify-center gap-6 text-sm" aria-label="Navigasi footer">
+          <a href="#about"    class="foot-link">Tentang</a>
+          <a href="#skills"   class="foot-link">Tech Stack</a>
+          <a href="#projects" class="foot-link">Proyek</a>
+          <a href="#contact"  class="foot-link">Kontak</a>
+          <a href="mailto:ghozimaulana44@gmail.com" class="foot-link">Email</a>
+          <a href="https://wa.me/62895272576699" target="_blank" rel="noopener noreferrer" class="foot-link">WhatsApp</a>
+        </nav>
+      </div>
+
+      <div class="mt-10 flex flex-col items-center gap-3 border-t border-white/6 pt-7 sm:flex-row sm:justify-between">
+        <p class="font-mono text-xs text-slate-500">
+          © <span id="year">2026</span> Muhammad Ghozy Maulana. All rights reserved.
+        </p>
+        <p class="font-mono text-xs text-slate-600">
+          Built with HTML · Tailwind CSS · Vanilla JS — Sukoharjo, ID
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== FLOATING ACTION BUTTONS ===================== -->
+  <div class="fab-stack" role="complementary" aria-label="Tombol aksi cepat">
+    <a id="fab-mail" href="mailto:ghozimaulana44@gmail.com"
+       class="fab" aria-label="Kirim email ke ghozimaulana44@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span class="tip">Email</span>
+    </a>
+    <a id="fab-wa" href="https://wa.me/6289527576699" target="_blank" rel="noopener noreferrer"
+       class="fab fab--wa" aria-label="Chat WhatsApp 089527576699">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      <span class="tip">WhatsApp</span>
+    </a>
+    <a id="fab-tel" href="tel:+6289527576699"
+       class="fab" aria-label="Telepon 089527576699">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+      <span class="tip">Telepon</span>
+    </a>
+    <button id="fab-top" type="button"
+       class="fab fab--top is-hidden" aria-label="Kembali ke atas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+      <span class="tip">Ke atas</span>
+    </button>
+  </div>
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ===== SCRIPT ===== -->
+  <script src="./script.js"></script>
+</body>
+</html>
